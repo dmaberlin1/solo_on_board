@@ -1,5 +1,5 @@
 import {Languages} from "@/constants/constants.tsx";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction, Slice} from "@reduxjs/toolkit";
 
 
 type languageState={
@@ -10,7 +10,7 @@ const initialState:languageState={
     language:Languages.ru
 }
 
-const languageSlice=createSlice({
+const languageSlice:Slice<languageState>=createSlice({
     name:'languageSlice',
     initialState,
     reducers:{

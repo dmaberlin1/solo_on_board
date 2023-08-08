@@ -1,11 +1,73 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from "@/redux/hooks.tsx";
+import {compareChars, getCurrentChar} from "@/helpers/charTransform.tsx";
+import {fetchText, increasePressingCount, setCurrentCharIndex, setMistakes, setText} from "@/redux/store/textSlice.tsx";
+import {setIsTimerOn} from "@/redux/store/timerSlice.tsx";
+import {setIsTestFinished} from "@/redux/store/testSlice.tsx";
 
-const Test:FunctionComponent = () => {
+const Text:FunctionComponent = () => {
+    const dispatch=useAppDispatch()
+    const text=useAppSelector(state=>state.textSlice.text)
+    const isLoading=useAppSelector(state=>state.textSlice.isLoading);
+    const error=useAppSelector(state=>state.textSlice.error)
+    const currentCharIndex=useAppSelector(state=>state.textSlice.currentCharIndex)
+    const mistakes=useAppSelector(state=>state.textSlice.mistakes)
+    const sentences=useAppSelector(state=>state.testSlice.sentences);
+
+
+    useEffect(() => {
+        fetchText(sentences)
+    }, [dispatch, sentences]);
+
+    useEffect(() => {
+        const newText=getCurrentChar(text,currentCharIndex);
+        dispatch(setText(newText))
+    }, [dispatch,currentCharIndex,text]);
+
+    useEffect(() => {
+        if(pressingCount===0 && text.length>0){
+            dispatch(setIsTimerOn(true))
+        }
+
+        if(currentCharIndex<text.length){
+            const keyPressHandler=(event:KeyboardEvent)=>{
+                const [newText,newCurrentIndex,newMistakes]=compareChars(text, currentCharIndex,event.key,mistakes);
+
+                dispatch(setCurrentCharIndex(newCurrentIndex));
+                dispatch(setText(newText))
+                dispatch(setMistakes(newMistakes));
+                dispatch(increasePressingCount());
+
+                if(newCurrentIndex === text.length){
+                    dispatch(setIsTimerOn(false));
+                    dispatch(setIsTestFinished(true));
+                }
+
+            }
+            document.addEventListener('keypress',keyPressHandler);
+
+            return ()=>{
+                document.removeEventListener('keypress',keyPressHandler)
+            }
+        }
+    }, [currentCharIndex, dispatch, mistakes, text]);
+
+
     return (
-        <section>
-            <h2>Test</h2>
-        </section>
+        <div className={'flex'}>
+            {error && <p className={'text-red-300'}>{error}</p>}
+            {isLoading  && <p>Loading text...</p>}
+            {!isLoading &&  <div>
+                {text.map((item,index)=>{
+                    return (
+                        <span key={index}>
+                            {item.char}
+                        </span>
+                    )
+                })}
+            </div>}
+        </div>
     );
 };
 
-export default Test;
+export default Text;

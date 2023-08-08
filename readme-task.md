@@ -4,6 +4,6 @@
 
 >tasks:
 > - input keyboard as terminal as linux
-> - add keyboard with two variable - 💻 Notebook  or ⌨️ Ryzer™ CYNOSA PRO 
+> - add keyboard with two variable - 💻 Notebook,MacBook  or ⌨️ Ryzer™ CYNOSA PRO 
 > - add three language on webApp - ua && ru && en
 > - use clsx npm
