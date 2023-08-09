@@ -1,7 +1,7 @@
 import {ITextState} from "@/redux/store/textSlice.tsx";
 import {minutesMeter,wordsMeter} from "@/utils/utils.tsx";
+import {initialAccuracy} from "@/constants/constants.tsx";
 
-const initialAccuracy='0.00'
 
 export const accuracyCounting=(mistakes:ITextState["mistakes"], pressingCount:ITextState["pressingCount"])=>{
 if(pressingCount){
@@ -16,5 +16,5 @@ export const speedCounting=(correctLetters:number,seconds:number)=>{
         const minutes=minutesMeter(seconds)
 
         return (words/minutes).toFixed(2);
-    }
+    }else return initialAccuracy
 }
