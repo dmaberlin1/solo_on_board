@@ -5,7 +5,7 @@ type MainProps={
 }
 const Main:FunctionComponent<MainProps> = ({children}) => {
     return (
-        <div>
+        <div className={'dark:bg-lime-50'}>
             {children}
         </div>
     );

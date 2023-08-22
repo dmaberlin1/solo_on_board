@@ -4,6 +4,7 @@ import languageSlice from "@/redux/store/languageSlice.tsx";
 import textSlice from "@/redux/store/textSlice.tsx";
 import keyboardSlice from "@/redux/store/keyboardSlice.tsx";
 import timerSlice from "@/redux/store/timerSlice.tsx";
+import themeSlice from "@/redux/store/themeSlice.tsx";
 
 const store=configureStore({
     reducer:{
@@ -11,7 +12,8 @@ const store=configureStore({
         textSlice:textSlice,
         languageSlice:languageSlice,
         keyboardSlice:keyboardSlice,
-        timerSlice:timerSlice
+        timerSlice:timerSlice,
+        themeSlice:themeSlice
     },
 })
 export default store;

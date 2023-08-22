@@ -11,3 +11,7 @@ export const wordsMeter=(correctLetters:number)=>{
 export const minutesMeter=(seconds:number)=>{
    return seconds/60
 }
+
+export const openLink=(link:string)=>{
+    return window.open(link,'_blank');
+}

@@ -9,6 +9,10 @@ export enum Keyboards {
     'macbook' = 'macbook',
     'ryzer' = 'ryzer',
 }
+export enum Themes{
+    dark='dark',
+    light='light',
+}
 
 export const sentencesOptions = [
     {value: '2', name: '2'},

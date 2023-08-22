@@ -12,6 +12,7 @@ const Text:FunctionComponent = () => {
     const error=useAppSelector(state=>state.textSlice.error)
     const currentCharIndex=useAppSelector(state=>state.textSlice.currentCharIndex)
     const mistakes=useAppSelector(state=>state.textSlice.mistakes)
+    const pressingCount=useAppSelector(state=>state.textSlice.pressingCount)
     const sentences=useAppSelector(state=>state.testSlice.sentences);
 
 
@@ -22,7 +23,7 @@ const Text:FunctionComponent = () => {
     useEffect(() => {
         const newText=getCurrentChar(text,currentCharIndex);
         dispatch(setText(newText))
-    }, [dispatch,currentCharIndex,text]);
+    }, [dispatch,currentCharIndex]);
 
     useEffect(() => {
         if(pressingCount===0 && text.length>0){
@@ -50,7 +51,7 @@ const Text:FunctionComponent = () => {
                 document.removeEventListener('keypress',keyPressHandler)
             }
         }
-    }, [currentCharIndex, dispatch, mistakes, text]);
+    }, [dispatch,  text]);
 
 
     return (

@@ -6,7 +6,7 @@ type ModalWindowProps={
 
 const ModalWindow:FunctionComponent<ModalWindowProps> = ({children,title}) => {
     return (
-        <div>
+        <div className={'container '}>
         <h2>{title}</h2>
             {children}
         </div>
