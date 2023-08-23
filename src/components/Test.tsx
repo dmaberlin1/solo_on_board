@@ -31,7 +31,7 @@ const Test:FunctionComponent = () => {
     }
 
     return (
-        <div>
+
             <section className={'flex'}>
                 <Text/>
                 <Stats>
@@ -47,7 +47,7 @@ const Test:FunctionComponent = () => {
                 </ModalWindow>
                 }
             </section>
-        </div>
+
     );
 };
 

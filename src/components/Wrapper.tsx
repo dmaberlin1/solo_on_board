@@ -5,7 +5,7 @@ interface IWrapper {
 }
 const Wrapper:FC<IWrapper> = ({children}) => {
     return (
-        <div className={'min-h-screen w-full bg-white rounded-lg shadow dark:bg-gray-900'}>
+        <div className={'flex flex-col min-h-screen w-full bg-white mx-auto container rounded-lg shadow dark:bg-gray-900'}>
             {children}
         </div>
     );

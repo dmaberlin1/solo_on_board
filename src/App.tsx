@@ -1,4 +1,5 @@
 import {FC, useState} from "react";
+import {Routes,Route,Link} from 'react-router-dom'
 import Footer from "@/components/ui/Footer.tsx";
 import Header from "@/components/ui/Header.tsx";
 import Main from "@/components/ui/Main.tsx";
@@ -12,41 +13,38 @@ import {sentencesOptions} from "@/constants/constants.tsx";
 import Wrapper from "@/components/Wrapper.tsx";
 import ThemeToggler from "@/components/ui/ThemeToggler.tsx";
 
+import LoginPage from "@/pages/LoginPage.tsx";
+import SignUpPage from "@/pages/SignUpPage.tsx";
+import HomePage from "@/pages/HomePage.tsx";
+import NotFoundPage from "@/pages/NotFoundPage.tsx";
+
+export enum PathPages {
+    home='/',
+    login='/login',
+    signup='/signup',
+
+}
+
 const App: FC = () => {
     const dispatch = useAppDispatch()
-    const isTestStarted: boolean = useAppSelector(state => state.testSlice.isTestStarted)
-    const sentences = useAppSelector(state => state.testSlice.sentences);
-    const testStateToggle = () => dispatch(setIsTestStarted(true))
-    const changeSentences = (value: string) => dispatch(setSentences(value));
+
+
+        //switch > Routes
+       //
 
     return (
         <>
             <Wrapper>
                 <Header></Header>
-                <Main>
-                    <>
-                        <ThemeToggler/>
-                        {isTestStarted &&
-                            <Text/>
-                        }
-                        {!isTestStarted &&
-                            <ModalWindow title={'Take a typing test'}>
-                                <label className={'font-bold text-sm'} htmlFor={'select-sentences'}>
-                                    Choose amount of sentences
-                                </label>
-                                <Select id={'select-sentences'}
-                                        defaultValue={sentences}
-                                        options={sentencesOptions}
-                                        onChange={(event) => changeSentences(event.target.value)}
-                                />
+                <Routes>
+                    <Route path={PathPages.home}>
+                    <Route path={PathPages.home} element={<HomePage/>}></Route>
+                    <Route path={PathPages.login} element={<LoginPage/>}></Route>
+                    <Route path={PathPages.signup} element={<SignUpPage/>}></Route>
+                    <Route path={'*'} element={<NotFoundPage/>}></Route>
+                    </Route>
+                </Routes>
 
-
-                                <Button btnText={'start test'} className={'bg-gray-400'}
-                                        onClick={testStateToggle}></Button>
-                            </ModalWindow>
-                        }
-                    </>
-                </Main>
 
             </Wrapper>
             <div className={'w-full fixed bottom-0'}><Footer/></div>

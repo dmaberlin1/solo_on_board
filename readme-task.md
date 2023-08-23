@@ -3,7 +3,10 @@
 > <h2 align="end">Happy Hacking! &nbsp;💻&nbsp;</h2>
 
 >tasks:
-> - input keyboard as terminal as linux
-> - add keyboard with two variable - 💻 Notebook,MacBook  or ⌨️ Ryzer™ CYNOSA PRO 
-> - add three language on webApp - ua && ru && en
-> - use clsx npm
+> 
+> - feat auth with firebase
+> - feat form with react-hook-form
+> - input keyboard as terminal as linux ---await
+> - add keyboard with three variable - 💻  Notebook,MacBook  or ⌨️ Ryzer™ CYNOSA PRO ---await 
+> - add three language on webApp - ua && ru && en---await
+> - use clsx npm  +
