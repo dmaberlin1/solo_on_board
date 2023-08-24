@@ -1,9 +1,12 @@
 import React, {FunctionComponent} from 'react';
 
-const Main = ({children:FunctionComponent}) => {
+type MainProps={
+    children:JSX.Element |JSX.Element[]
+}
+const Main:FunctionComponent<MainProps> = ({children}) => {
     return (
-        <div>
-            children
+        <div className={'dark:bg-lime-50'}>
+            {children}
         </div>
     );
 };
