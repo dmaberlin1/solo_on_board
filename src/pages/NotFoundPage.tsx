@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {PathPages} from "@/App.tsx";
-import keyboardLogo from  '../../assets/images/keyboard.png'
+import keyboardLogo from  '@/assets/images/keyboard.png'
 
 const NotFoundPage = () => {
     return (

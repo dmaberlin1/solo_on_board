@@ -3,10 +3,9 @@ import LoginForm from "@/components/ui/LoginForm.tsx";
 
 const LoginPage = () => {
     return (
-        <div>
-            <h2>Login Page</h2>
+        <>
             <LoginForm/>
-        </div>
+        </>
     );
 };
 

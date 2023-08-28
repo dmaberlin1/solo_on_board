@@ -10,3 +10,4 @@
 > - add keyboard with three variable - 💻  Notebook,MacBook  or ⌨️ Ryzer™ CYNOSA PRO ---await 
 > - add three language on webApp - ua && ru && en---await
 > - use clsx npm  +
+>- тренажер,  например по символам и командам с горячими клавишами

@@ -7,13 +7,13 @@ import {setIsTestFinished} from "@/redux/store/testSlice.tsx";
 
 const Text:FunctionComponent = () => {
     const dispatch=useAppDispatch()
-    const text=useAppSelector(state=>state.textSlice.text)
-    const isLoading=useAppSelector(state=>state.textSlice.isLoading);
-    const error=useAppSelector(state=>state.textSlice.error)
-    const currentCharIndex=useAppSelector(state=>state.textSlice.currentCharIndex)
-    const mistakes=useAppSelector(state=>state.textSlice.mistakes)
-    const pressingCount=useAppSelector(state=>state.textSlice.pressingCount)
-    const sentences=useAppSelector(state=>state.testSlice.sentences);
+    const text=useAppSelector(state=>state.text.text)
+    const isLoading=useAppSelector(state=>state.text.isLoading);
+    const error=useAppSelector(state=>state.text.error)
+    const currentCharIndex=useAppSelector(state=>state.text.currentCharIndex)
+    const mistakes=useAppSelector(state=>state.text.mistakes)
+    const pressingCount=useAppSelector(state=>state.text.pressingCount)
+    const sentences=useAppSelector(state=>state.test.sentences);
 
 
     useEffect(() => {

@@ -1,9 +1,10 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import '@/index.css';
+import App from '@/App.tsx';
 import {Provider} from "react-redux";
 import store from "@/redux/store/store.tsx";
+import '@/firebase.tsx'
 import {BrowserRouter} from "react-router-dom";
 
 const rootElement = document.getElementById('root') as HTMLElement;

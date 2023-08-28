@@ -3,8 +3,9 @@ import SignUpForm from "@/components/ui/SignUpForm.tsx";
 
 const SignUpPage = () => {
     return (
-        <div>
-            <h2>Sign Up </h2>
+        <div className={'container mt-2'}>
+            <h2 className={'mb-5 text-center'}>Sign Up </h2>
+
             <SignUpForm></SignUpForm>
         </div>
     );

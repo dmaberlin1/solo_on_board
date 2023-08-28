@@ -11,8 +11,8 @@ import ModalWindow from "@/components/ui/ModalWindow.tsx";
 
 const Test:FunctionComponent = () => {
     const dispatch=useAppDispatch();
-    const isTestFinished=useAppSelector(state=>state.testSlice.isTestFinished);
-    const text=useAppSelector(state=>state.textSlice.text)
+    const isTestFinished=useAppSelector(state=>state.test.isTestFinished);
+    const text=useAppSelector(state=>state.text.text)
 
     function restart() {
         dispatch(resetSeconds())
@@ -52,3 +52,12 @@ const Test:FunctionComponent = () => {
 };
 
 export default Test;
+
+
+
+
+
+
+
+
+

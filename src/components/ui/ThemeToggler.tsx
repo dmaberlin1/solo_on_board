@@ -6,7 +6,7 @@ import {ReactComponent as ThemeDarkIcon} from "../../assets/images/theme-dark.sv
 import {setTheme} from "@/redux/store/themeSlice.tsx";
 
 const ThemeToggler = () => {
-    const currentTheme = useAppSelector(state => state.themeSlice.theme)
+    const currentTheme = useAppSelector(state => state.theme.theme)
     const dispatch = useAppDispatch()
 
     const changeTheme = useCallback((value: Themes) => {
