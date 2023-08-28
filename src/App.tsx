@@ -20,8 +20,8 @@ import NotFoundPage from "@/pages/NotFoundPage.tsx";
 
 export enum PathPages {
     home='/',
-    login='/login',
-    signup='/signup',
+    login='login',
+    signup='signup',
 
 }
 
@@ -35,19 +35,16 @@ const App: FC = () => {
     return (
         <>
             <Wrapper>
-                <Header></Header>
                 <Routes>
                     <Route path={PathPages.home}>
-                    <Route path={PathPages.home} element={<HomePage/>}></Route>
-                    <Route path={PathPages.login} element={<LoginPage/>}></Route>
-                    <Route path={PathPages.signup} element={<SignUpPage/>}></Route>
-                    <Route path={'*'} element={<NotFoundPage/>}></Route>
+                    <Route index element={<HomePage/>}/>
+                    <Route path={PathPages.login} element={<LoginPage/>}/>
+                    <Route path={PathPages.signup} element={<SignUpPage/>}/>
+                    <Route path={'*'} element={<NotFoundPage/>}/>
                     </Route>
                 </Routes>
-
-
             </Wrapper>
-            <div className={'w-full fixed bottom-0'}><Footer/></div>
+
         </>
     )
 };

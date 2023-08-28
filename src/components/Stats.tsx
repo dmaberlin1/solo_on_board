@@ -10,10 +10,10 @@ interface IStats {
 
 const Stats:FunctionComponent<IStats>=({children})=>{
     const dispatch=useAppDispatch();
-    const mistakes=useAppSelector(state=>state.textSlice.mistakes);
-    const pressingCount=useAppSelector(state=>state.textSlice.pressingCount)
-    const seconds=useAppSelector(state=>state.timerSlice.seconds)
-    const isTimerOn=useAppSelector(state=>state.timerSlice.isTimerOn);
+    const mistakes=useAppSelector(state=>state.text.mistakes);
+    const pressingCount=useAppSelector(state=>state.text.pressingCount)
+    const seconds=useAppSelector(state=>state.timer.seconds)
+    const isTimerOn=useAppSelector(state=>state.timer.isTimerOn);
     const [speed, setSpeed] = useState(initialAccuracy);
     const [accuracy, setAccuracy] = useState(initialAccuracy);
 

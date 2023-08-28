@@ -7,12 +7,14 @@ import Main from "@/components/ui/Main.tsx";
 import ThemeToggler from "@/components/ui/ThemeToggler.tsx";
 import {useAppDispatch, useAppSelector} from "@/redux/hooks.tsx";
 import {setIsTestStarted, setSentences} from "@/redux/store/testSlice.tsx";
+import Text from "@/components/Text.tsx";
+import {useAuth} from "@/hooks/use-auth.tsx";
 
 const HomePage = () => {
     const dispatch = useAppDispatch()
-
-    const isTestStarted: boolean = useAppSelector(state => state.testSlice.isTestStarted)
-    const sentences = useAppSelector(state => state.testSlice.sentences);
+    const {isAuth,email}=useAuth()
+    const isTestStarted: boolean = useAppSelector(state => state.test.isTestStarted)
+    const sentences = useAppSelector(state => state.test.sentences);
     const testStateToggle = () => dispatch(setIsTestStarted(true))
     const changeSentences = (value: string) => dispatch(setSentences(value));
 
