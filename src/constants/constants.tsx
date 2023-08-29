@@ -22,3 +22,4 @@ export const sentencesOptions = [
 ]
 export const BACON_BASED_URL = 'https://baconipsum.com/api/'
 export const initialAccuracy = '0.00'
+    export const regexpMail=/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/

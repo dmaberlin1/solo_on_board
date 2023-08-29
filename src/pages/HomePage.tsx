@@ -9,20 +9,23 @@ import {useAppDispatch, useAppSelector} from "@/redux/hooks.tsx";
 import {setIsTestStarted, setSentences} from "@/redux/store/testSlice.tsx";
 import Text from "@/components/Text.tsx";
 import {useAuth} from "@/hooks/use-auth.tsx";
+import {removeUser} from "@/redux/store/userSlice.tsx";
 
 const HomePage = () => {
     const dispatch = useAppDispatch()
-    const {isAuth,email}=useAuth()
+    const {isAuth,email,displayName}=useAuth()
     const isTestStarted: boolean = useAppSelector(state => state.test.isTestStarted)
     const sentences = useAppSelector(state => state.test.sentences);
     const testStateToggle = () => dispatch(setIsTestStarted(true))
     const changeSentences = (value: string) => dispatch(setSentences(value));
 
+    const accName= typeof email==="string" && email.substring(0, email.indexOf('@'));
 
     return (
         <div>
             <Main>
                 <>
+                    <h2>Hello {displayName && displayName}</h2>
                     <ThemeToggler/>
                     {isTestStarted && <Text/>}
                     {!isTestStarted &&
@@ -40,6 +43,9 @@ const HomePage = () => {
                             <Button btnText={'start test'} className={'bg-gray-400'}
                                     onClick={testStateToggle}></Button>
                         </ModalWindow>
+                    }
+                    {accName &&
+                        <Button btnText={`log out from ${accName}. account`} onClick={()=>dispatch(removeUser)}></Button>
                     }
                 </>
             </Main>
