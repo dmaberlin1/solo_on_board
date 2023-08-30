@@ -4,6 +4,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'>{
     btnText:string
     fill?:boolean
     className?:string
+
 }
 const Button:FunctionComponent<ButtonProps> = ({className,btnText,fill=false,...props}) => {
     return (

@@ -30,7 +30,15 @@ const LoginForm = () => {
 
         console.log(responseBody)
         signInWithEmailAndPassword(auth,responseBody.email,responseBody.password)
-            .then(console.log)
+            .then((userCredential)=>{
+                const user=userCredential.user
+                dispatch(setUser({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.refreshToken,
+                    displayName: user.displayName
+                }))
+            })
             .catch(console.error)
     }
 
